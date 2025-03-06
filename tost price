@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+
+
+int main() {
+    const int toast_Price = 12;
+    const int cheap_Topping_Price = 2;
+    const int pricy_Topping_Price = 3;
+    const char menu_Cheap_Topping[100] ="\n1.mashroom \n2.olives \n3.corn";
+    const char menu_Pricy_Topping[100] ="\n1.cheese \n2.tuna \n3.cheder";
+    int choiceYN = 0;
+    int choiceTop = 0;
+    int counterC = 0;
+    int counterP = 0;
+    printf("============================================================\n");
+    printf("         Welcome to My Restaurant - Toast Maker!           \n");
+    printf("============================================================\n");
+    printf("We offer a base toast for %d shekels, and you can add toppings!\n", toast_Price);
+    printf("Let's start customizing your toast! Please enter your choices below with the right number.\n");
+
+    printf("We have cheap topping that cost %d shekels like: %s\n", cheap_Topping_Price, menu_Cheap_Topping );
+    printf("do you want any cheap topping in your toast? \n1.yes \n2.no\n");
+    while(scanf("%d", &choiceYN) != 1||choiceYN<1||choiceYN>2){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+    }
+    while(choiceYN == 1){
+        printf("which topping do you like to have?%s\n", menu_Cheap_Topping );
+        while(scanf("%d", &choiceTop) != 1||choiceTop<1||choiceTop>3){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+        }
+        counterC ++;
+        printf("perfect do you want another cheap topping? \n1.yes \n2.no\n");
+        while(scanf("%d", &choiceYN) != 1||choiceYN<1||choiceYN>2){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+    }
+    }
+    printf("We have pricy topping that cost %d shekels like: %s\n", pricy_Topping_Price, menu_Pricy_Topping );
+    printf("do you want any pricy topping in your toast? \n1.yes \n2.no\n");
+    while(scanf("%d", &choiceYN) != 1||choiceYN<1||choiceYN>2){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+    }
+    while(choiceYN == 1){
+        printf("which topping do you like to have?%s\n", menu_Pricy_Topping );
+        while(scanf("%d", &choiceTop) != 1||choiceTop<1||choiceTop>3){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+        }
+        counterP ++;
+        printf("perfect do you want another pricy topping? \n1.yes \n2.no\n");
+        while(scanf("%d", &choiceYN) != 1||choiceYN<1||choiceYN>2){
+        printf("incorrect answer choose again\n");
+        while (getchar() != '\n');
+    }
+    }
+    printf("your total price for this toast is %d shekels",(toast_Price+(cheap_Topping_Price*counterC)+(pricy_Topping_Price*counterP)));
+
+    return 0;
+}
