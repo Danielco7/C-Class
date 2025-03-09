@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void numFromEvenPositions (int num, int index) {
+    int digit = 0;
+    int size = 1;
+    int pownum;
+    if(index == 1){
+        num /= 10;
+    }
+    while (num != 0){
+        size *= 10;
+        pownum = (num % 10) * size;
+        digit = digit + pownum;
+        num /= 100;
+    }
+    digit /= 10;
+    printf("%d\n", digit);
+}
+
+void main() {
+    int num;
+    printf("give me a positive number\n");
+    scanf("%d", &num);
+    
+    printf("even: ");
+    numFromEvenPositions (num, 0);
+    printf("odd: ");
+    numFromEvenPositions (num, 1);
+}
