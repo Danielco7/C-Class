@@ -1,0 +1,14 @@
+Electronics
+3
+Laptop
+4500
+Smartphone
+3000
+Headphones
+500
+Groceries
+2
+Milk
+10
+Bread
+7
